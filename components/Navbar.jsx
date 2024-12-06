@@ -6,9 +6,18 @@ const Navbar = () => {
       <h1 className="text-lg font-semibold">Tasky</h1>
       <ul className="flex gap-[40px] text-m">
         <li>Home</li>
-        <li>Products</li>
-        <li>About</li>
-        <li>Contact</li>
+        <li>
+          {" "}
+          <a href="https://github.com/Maximozev?tab=repositories">Products</a>
+        </li>
+        <li>
+          <a href="https://github.com/Maximozev">About</a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/max-enriquez-009912226/overlay/contact-info/">
+            Contact
+          </a>
+        </li>
       </ul>
     </div>
   );

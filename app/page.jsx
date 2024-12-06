@@ -18,6 +18,14 @@ export default function Home() {
     setTodoData(response.data.todos);
   };
 
+  const deleteTodo = async (id) => {
+    const response = await axios.delete("/api", {
+      params: { mongoId: id },
+    });
+    toast.success(response.data.message);
+    fetchTodos();
+  };
+
   useEffect(() => {
     fetchTodos();
   }, []);
@@ -121,6 +129,7 @@ export default function Home() {
                         description={item.description}
                         complete={item.isComplete}
                         mongoId={item._id}
+                        deleteTodo={deleteTodo}
                       />
                     );
                   })}

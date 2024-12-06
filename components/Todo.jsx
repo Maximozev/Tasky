@@ -1,6 +1,14 @@
 import React from "react";
 
-const Todo = ({ id, title, description, mongoId, complete, deleteTodo }) => {
+const Todo = ({
+  id,
+  title,
+  description,
+  mongoId,
+  complete,
+  deleteTodo,
+  completeTodo,
+}) => {
   return (
     <tr className="hover:bg-gray-100">
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
@@ -23,12 +31,17 @@ const Todo = ({ id, title, description, mongoId, complete, deleteTodo }) => {
         >
           Delete
         </button>
-        <button
-          type="button"
-          className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent py-2 px-4 bg-green-500 text-white hover:text-indigo-800 focus:outline-none focus:text-indigo-800 disabled:opacity-50 disabled:pointer-events-none"
-        >
-          Done
-        </button>
+        {complete ? (
+          ""
+        ) : (
+          <button
+            onClick={() => completeTodo(mongoId)}
+            type="button"
+            className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent py-2 px-4 bg-green-500 text-white hover:text-indigo-800 focus:outline-none focus:text-indigo-800 disabled:opacity-50 disabled:pointer-events-none"
+          >
+            Done
+          </button>
+        )}
       </td>
     </tr>
   );

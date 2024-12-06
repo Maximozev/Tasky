@@ -1,19 +1,19 @@
 import React from "react";
 
-const Todo = () => {
+const Todo = ({ id, title, description, mongoId, complete }) => {
   return (
     <tr className="hover:bg-gray-100">
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
-        1
+        {id + 1}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-        Study
+        {title}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-        Learn Next JS
+        {description}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-        Pending
+        {complete ? "Completed" : "Pending"}
       </td>
       <td className=" gap-1 px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
         <button
